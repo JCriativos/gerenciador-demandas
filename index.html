@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workflow Criativo Digital</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Outfit:wght@100..900&family=Overlock+SC&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav class="sidebar" aria-label="Menu lateral">
+    <div class="menu-item selected" title="Ambiente: Produção" tabindex="0" role="button" aria-pressed="true" aria-label="Ambiente produção">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+      </svg>
+      <span class="label" style="display:none;">Produção</span>
+    </div>
+  </nav>
+
+  <main class="content-area" role="main" tabindex="-1">
+    <form id="servico-form" aria-labelledby="form-title" novalidate>
+      <h1 id="form-title">Gerenciamento de Demandas</h1>
+
+      <div class="cards-management" aria-label="Gerenciamento dos cards">
+        <button 
+          type="button" 
+          id="btn-add-card" 
+          aria-label="Adicionar novo card" 
+          style="opacity: 0; pointer-events: auto; position: absolute; top: -9999px;"
+        >
+          + Novo Card
+        </button>
+      </div>
+
+      <div id="novo-card-area" style="margin-top: 22px; background-color: rgba(255, 255, 255, 0.5); border-radius:8px; padding:16px 16px 10px 16px; border: 1.5px solid #eee;">
+
+        <div class="campo-duplo" style="align-items: flex-end;">
+          <div>
+            <label for="novo-card-nome">Título do Cartão <span aria-hidden="true" style="color:#D9573D;">*</span></label>
+            <input type="text" id="novo-card-nome" name="novo-card-nome" required autocomplete="off" />
+          </div>
+          <div>
+            <label for="novo-card-prazo">Prazo de entrega <span aria-hidden="true" style="color:#D9573D;">*</span></label>
+            <input type="date" id="novo-card-prazo" name="novo-card-prazo" required />
+          </div>
+          
+          <div style="flex: 1 1 auto;">
+            <label for="novo-card-item">Solicitações</label>
+            <input type="text" id="novo-card-item" name="novo-card-item" placeholder="Digite o título da solicitação" />
+          </div>
+          <div>
+            <label for="valor-item">Valor por Demanda (opcional)</label>
+            <input type="number" id="valor-item" name="valor-item" min="0" step="0.01" placeholder="Digite o valor unitário da demanda" />
+          </div>
+          <div>
+            <button type="button" id="btn-add-checkitem" title="Adicionar item de checklist" style="height: 35px;">Adicionar item</button>
+            <button type="button" id="btn-salvar-card" aria-label="Salvar novo card">Criar Novo Cartão</button> 
+            <label style="margin-top: 15px;">Lista de Solicitações</label>
+            <ul id="novo-card-list" class="list-check-form"></ul>    
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+    <section id="demandas" aria-label="Lista de demandas com checklist e progresso"></section>
+
+    <section id="estatisticas" aria-live="polite" aria-atomic="true" aria-relevant="text">
+      <h2>Estatísticas de Desempenho</h2>
+      <ul>
+        <li><strong>Total de demandas concluídas:</strong> <span id="stats-concluidas">0</span></li>
+        <li><strong>Tempo médio por demanda (h):</strong> <span id="stats-tempo">0</span></li>
+        <li><strong>Progresso geral:</strong> <span id="stats-progresso">0%</span></li>
+        <li><strong>Demandas em atraso:</strong> <span id="stats-atraso">0</span></li>
+        <li><strong>Demanda com maior tempo:</strong> <span id="stats-maior-tempo">Nenhuma</span></li>
+        <li><strong>Ranking colaborador (exemplo):</strong> <span id="stats-ranking">Ana - 5 tarefas concluidas</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Link para arquivo JS externo -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

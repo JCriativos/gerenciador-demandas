@@ -1,0 +1,572 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: url('../imagens/bg.png') center/cover no-repeat fixed;
+  background-color: #F5F5F5;
+  color: #333333;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  min-width: 100vw;
+}
+nav.sidebar {
+  width: 60px;
+  background-color: rgba(230, 235, 241, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  box-shadow: inset -1px -2px 8px rgb(0 0 0 / 0.1);
+  position: fixed;
+  height: 100vh;
+  z-index: 10;
+}
+nav.sidebar .menu-item {
+  width: 48px;
+  height: 48px;
+  margin: 12px 0;
+  color: #A1A1A1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  user-select: none;
+}
+nav.sidebar .menu-item.selected {
+  background-color: #FFF;
+  color: #0F4C4A;
+  box-shadow: inset -1px -2px 8px rgb(0 0 0 / 0.1);
+  margin-top: 20px;
+}
+nav.sidebar .menu-item:hover:not(.selected) {
+  background-color: #134C4C66;
+  color: #F1F1F1;
+}
+nav.sidebar svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+@media(min-width: 800px){
+  nav.sidebar {
+    width: 150px;
+    align-items: flex-start;
+    padding-left: 16px;
+  }
+  nav.sidebar .menu-item {
+    width: 10px;
+    height: 30px;
+    margin: 0px ;
+    padding: 0 60px;
+    border-radius: 50px;
+    justify-content: ;
+    gap: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.sidebar .menu-item.selected:hover  {
+    filter: brightness(1.2);
+    background: linear-gradient(to bottom, #1f8ac0, #13658f);
+    color: #ffffff;
+  }
+  nav.sidebar svg {
+    flex-shrink: 0;
+  }
+}
+header.topbar {
+  position: fixed;
+  left: 60px;
+  right: 0;
+  height: 16px;
+  background-color: #F1F1F1;
+  border-bottom: 1px solid #DDDDDD;
+  display: block;
+  padding: 0;
+  z-index: 9;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D9573D;
+  user-select: none;
+}
+@media(min-width: 800px){
+  header.topbar {
+    left: 140px;
+  }
+}
+main.content-area {
+  margin-left: 60px;
+  margin-top: ;
+  padding: 20px 24px;
+  height: calc(100vh - 16px);
+  overflow-y: auto;
+  width: calc(100% - 60px);
+  background-color: transparent;
+}
+@media(min-width: 800px){
+  main.content-area {
+    margin-left: 140px;
+    width: calc(100% - 140px);
+  }
+}
+form#servico-form {
+  background: ;
+  border-radius: 15px;
+  box-shadow: inset -1px -2px 8px rgb(0 0 0 / 0.1);
+  padding: 20px 24px;
+  margin-bottom: 25px;
+}
+form#servico-form h1 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 24px;
+  color: #0F4C4A;
+}
+/* Organizar campos lado a lado */
+form#servico-form .campo-duplo {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+form#servico-form .campo-duplo > div {
+  flex: 1 1 220px;
+  min-width: 160px;
+}
+form#servico-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 10;
+  margin-bottom: 6px;
+  color: #333333;
+}
+form#servico-form input[type="text"],
+form#servico-form input[type="date"],
+form#servico-form input[type="number"],
+form#servico-form select {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #DDDDDD;
+  font-size: 14px;
+  color: #333333;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s;
+}
+form#servico-form input[type="text"]:focus,
+form#servico-form input[type="date"]:focus,
+form#servico-form input[type="number"]:focus,
+form#servico-form select:focus {
+  outline: none;
+  border-color: #53A1D2;
+}
+form#servico-form button {
+  background-color: ;
+  background: linear-gradient(to bottom, #1f8ac0, #13658f);
+  border: none;
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-weight: ;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: filter 0.3s;
+  user-select: none;
+  margin-bottom: 10px;
+  margin-right: 8px;
+}
+form#servico-form button:hover {
+  filter: brightness(1.2);
+}
+.cards-management {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cards-management button {
+  background: #0F4C4A;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  user-select: none;
+  transition: filter 0.3s;
+}
+.cards-management button:hover {
+  filter: brightness(1.2);
+}
+.campo-flex {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.campo-flex input[type="text"] {
+  flex: 1 1 70%;
+}
+.campo-flex button {
+  padding: 6px 12px;
+  font-size: 18px;
+  background: #B97DF5;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s;
+  margin: 0;
+}
+.campo-flex button:hover {
+  filter: brightness(1.2);
+}
+/* ALTERADO: Reduzido tamanho do botão .remove-check para metade do original */
+.campo-flex .remove-check {
+  background: #D9573D;
+  color: #fff;
+  margin-left: 4px;
+  padding: 3px 8px;       /* padding reduzido */
+  font-size: 11px;        /* font-size reduzido */
+  border-radius: 6px;
+  height: 20px;           /* altura menor, opcional */
+  min-width: 16px;        /* largura mínima */
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s;
+}
+.campo-flex .remove-check:hover {
+  filter: brightness(1.2);
+}
+.list-check-form {
+  margin-top: 6px;
+  margin-bottom: 8px;
+  list-style: disc inside;
+  padding-left: 0;
+}
+.list-check-form li {
+  margin-bottom: 2px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+section#demandas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(350px,1fr));
+  gap: 20px;
+}
+.card-demanda {
+  background: ;
+  opacity: ;
+  border-radius: 15px;
+  box-shadow: inset -1px -2px 8px rgb(0 0 0 / 0.1);
+  padding: 16px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  position: relative;
+}
+.card-demanda header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid #6b89b5;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+.card-demanda header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 18px;
+  color: #19385E;
+  flex-grow: 1;
+}
+.card-demanda header h3[contenteditable="true"] {
+  outline: 2px solid transparent;
+  user-select: text;
+  cursor: text;
+}
+.card-demanda header h3[contenteditable="true"]:focus {
+  outline: 2px solid #53A1D2;
+  border-radius: 4px;
+  background: #eaf5fe;
+}
+.card-demanda header .prazo {
+  font-size: 13px;
+  font-weight: 600;
+  color: #53A1D2;
+  white-space: nowrap;
+}
+.card-demanda header button.excluir-card {
+  background: linear-gradient(to bottom, #D9573D, #ab402b);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  padding: 5px 5px 5px 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s;
+}
+.card-demanda header button.excluir-card:hover {
+  filter: brightness(1.2);
+}
+.card-demanda .checklist {
+  flex-grow: 1;
+  margin-bottom: 12px;
+}
+.card-demanda .checklist label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.card-demanda .checklist label .excluir-item-btn {
+  margin-left: ;
+  background: none;
+  border: none;
+  color: #D9573D;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.card-demanda .checklist label .excluir-item-btn:hover {
+  color: #a93021;
+}
+.card-demanda .checklist input[type="checkbox"] {
+  background-color: #1EBF00;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+/* Novo: mostrar valor ao lado do nome no checklist */
+.item-valor {
+  font-weight: 600;
+  color: #0F4C4A;
+  text-align: justify;
+  margin-left: auto;
+}
+.progress-bar {
+  position: relative;
+  height: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #DDD;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+.progress-bar > div {
+  height: 100%;
+  background: linear-gradient(to bottom, #1EBF00, #127200);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+.progress-text {
+  font-size: 13px;
+  font-weight: 10px;
+  color: #0F4C4A;
+  margin-bottom: 8px;
+}
+button.concluir-btn {
+  background: linear-gradient(to bottom, #1f8ac0, #13658f);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-weight: ;
+  padding: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.3s;
+}
+button.concluir-btn:hover {
+  filter: brightness(1.2);
+}
+button.concluir-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  filter: none;
+  background: linear-gradient(to bottom, #1EBF00, #127200);
+}
+.servicos-lista {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #555;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 12px;
+  max-height: 90px;
+  overflow-y: auto;
+}
+.servicos-lista ul {
+  list-style: disc inside;
+  margin: 0; padding: 0;
+}
+.servicos-lista ul li {
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.servico-remover-btn {
+  cursor: pointer;
+  color: #D9573D;
+  font-weight: 600;
+  user-select: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  padding: 0 4px 0 0;
+}
+.servico-remover-btn:hover {
+  text-decoration: underline;
+}
+.add-servico {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.add-servico input[type="text"] {
+  flex-grow: 1;
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1.5px solid #DDDDDD;
+  transition: border-color 0.3s;
+}
+.add-servico input[type="text"]:focus {
+  outline: none;
+  border-color: #53A1D2;
+}
+.add-servico button {
+  border: none;
+  background: linear-gradient(to bottom, #1f8ac0, #13658f);
+  color: white;
+  padding: 6px 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: filter 0.3s;
+  user-select: none;
+}
+.add-servico button:hover {
+  filter: brightness(1.2);
+}
+section#estatisticas {
+  margin-top: 36px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 0 7px rgb(0 0 0 / 0.08);
+  color: #0F4C4A;
+}
+section#estatisticas h2 {
+  color: #53A1D2;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
+}
+section#estatisticas ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 14px;
+}
+section#estatisticas ul li {
+  margin: 6px 0;
+}
+main.content-area::-webkit-scrollbar {
+  width: 8px;
+}
+main.content-area::-webkit-scrollbar-track {
+  background: #F5F5F5;
+}
+main.content-area::-webkit-scrollbar-thumb {
+  background-color: #53A1D2;
+  border-radius: 10px;
+}
+@media(max-width: 960px) {
+  form#servico-form .campo-duplo {
+    flex-direction: column;
+  }
+}
+@media(max-width: 600px){
+  nav.sidebar {
+    width: 50px;
+  }
+  main.content-area {
+    margin-left: 50px;
+    width: calc(100% - 50px);
+    padding: 15px 12px;
+  }
+  header.topbar {
+    left: 50px;
+  }
+  section#demandas {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* NOVO: Estilo para a etiqueta de pagamento */
+.card-demanda .payment-label {
+  display: inline-block;
+  background: linear-gradient(to bottom, #1EBF00, #127200);
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-weight: ;
+  font-size: 13px;
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin-right: 55px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.card-demanda .btn-pagamento {
+  background: linear-gradient(to bottom, #1f8ac0, #13658f);
+  box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: ;
+  padding: 5px 20px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  user-select: none;
+  margin-top: px;
+}
+.card-demanda .btn-pagamento.reverter {
+  background-color: ;
+  background: linear-gradient(to bottom, #D9573D, #ab402b);
+  color: #fff;
+  border-radius: 15px;
+  padding: 5px 20px 5px 20px;
+  margin-left: 0px;
+}
+.card-demanda .btn-pagamento:hover {
+  filter: brightness(1.1);
+}

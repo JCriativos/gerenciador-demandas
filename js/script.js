@@ -698,6 +698,22 @@ function setupCheckboxListeners() {
     }
   });
 }
+function enviarDemanda(demanda) {
+  fetch('https://script.google.com/macros/s/AKfycbyGvqgfC1HMcU3_QBrLMvel0NLdHwZha0dDVFZmUN9ZRN_kClrwcPce-alKOKYRgfB0Lw/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(demanda)
+  })
+  .then(() => {
+    console.log('Demanda enviada com sucesso!');
+  })
+  .catch(error => {
+    console.error('Erro ao enviar demanda:', error);
+  });
+}
 
 function init() {
   carregarPagamentos();
